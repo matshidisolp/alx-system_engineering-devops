@@ -1,2 +1,2 @@
-#!/bin/ban
-tail -n 1 >> iacta
+#!/bin/bash
+tail -n 1 >> iact
