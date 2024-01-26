@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-
-# Display "Best School" 10 times using a while loop
+# Display "Best School" 10 times with a special message on the 9th iteration
 
 counter=0
 
-while [ $counter -lt 10 ]
-do
-    if [ $counter -eq 8 ]
-    then
+while [ $counter -lt 10 ]; do
+    if [ $counter -eq 8 ]; then
+        echo "Best School"
         echo "Hi"
     else
         echo "Best School"
