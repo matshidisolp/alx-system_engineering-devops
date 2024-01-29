@@ -4,11 +4,7 @@
 # process ID (PID) of the script
 pid=$(pgrep -f "4-to_infinity_and_beyond")
 
-# is the process running
 if [ -z "$pid" ]; then
-    echo "Process not found."
 else
-    # terminate the process
     kill "$pid"
-    echo "Process terminated."
 fi
