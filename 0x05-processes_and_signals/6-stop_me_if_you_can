@@ -9,5 +9,4 @@ else
     # Send a termination signal to the process
     # You can use any signal you want, SIGTERM (15) is a common choice
     kill -15 "$pid"
-    echo "Process terminated."
 fi
