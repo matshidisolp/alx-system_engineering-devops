@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-# stops 4-to_infinity_and_beyond process w/o kill
+# Find and terminate the process using pkill
+pkill -f "4-to_infinity_and_beyond"
 
-# process ID (PID) of the script
-pid=$(pgrep -f "4-to_infinity_and_beyond")
-
-if [ -z "$pid" ]; then
-    echo "Process not found."
+# Check if the process is still running
+if pgrep -f "4-to_infinity_and_beyond" > /dev/null; then
+    echo "Process not terminated."
 else
-    # Send a termination signal to the process
-    kill -15 "$pid"
+    echo "Process terminated."
 fi
