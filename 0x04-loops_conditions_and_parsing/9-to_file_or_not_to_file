@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # Display specific message related to inforation about the school file
 file_path="school"
 
