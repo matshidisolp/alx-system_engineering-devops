@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 # Display number 1-20 with special display after 4,9 and 17
 
 counter=1

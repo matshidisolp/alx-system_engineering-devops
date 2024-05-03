@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 # Display "Best School" 1-10 but special messages for 4 & 8
 
 counter=1
