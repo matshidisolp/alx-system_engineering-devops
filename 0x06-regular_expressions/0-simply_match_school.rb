@@ -1,16 +1,7 @@
 #!/usr/bin/env ruby
 
-# Check if argument exists
-if ARGV.empty?
-  puts "Usage: ./0-simply_match_school.rb <string>"
-  exit 1
-end
+exit(puts "Usage: ./0-simply_match_school.rb <string>") if ARGV.empty?
 
-# Regular expression definition
-regex = /School/
+match = ARGV[0].scan(/School/)
 
-# Argument and reg. expression matching
-match = ARGV[0].scan(regex)
-
-# Matched string
 puts match.join
