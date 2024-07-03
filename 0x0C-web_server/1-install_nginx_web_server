@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
-# servers are the piece of software generating and serving HTML pages
-# install and configure Nginx on an Ubuntu server
+# Script to install and configure Nginx on an Ubuntu server
 
+# Update package lists
 apt-get update -y
+
+# Install Nginx
 apt-get install nginx -y
+
+# Allow 'Nginx HTTP' through the firewall
 sudo ufw allow 'Nginx HTTP'
+
+# Write "Hello World!" to the index.html file
 echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Restart Nginx using the nginx command
 sudo nginx -s reload
