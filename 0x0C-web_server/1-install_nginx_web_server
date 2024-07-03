@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
-# Script to install and configure Nginx on an Ubuntu server
+# A script to install and configure Nginx on an Ubuntu server
 
-# Update package lists
-apt-get update -y
+echo -e "Updating and installing Nginx.\n"
+sudo apt-get update -y -qq && \
+sudo apt-get install nginx -y
 
-# Install Nginx
-apt-get install nginx -y
+echo -e "\nSetting up.\n"
 
-# Allow 'Nginx HTTP' through the firewall
+# Starting Nginx service
+sudo service nginx start
+
+# Allowing Nginx on the firewall
 sudo ufw allow 'Nginx HTTP'
 
-# Write "Hello World!" to the index.html file
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Backup default index
+sudo mv /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
 
-# Restart Nginx using the nginx command
-sudo nginx -s reload
+# Creating new index
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Restarting Nginx
+sudo service nginx restart
+
+echo -e "\nCompleted.\n"
