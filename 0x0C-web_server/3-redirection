@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 # create a redirection configuration
-sudo ./1-install_nginx_web_server
-search='server_name _;'
-repl="a \ \ \ \ \ \ \ \ location /redirect_me {return 301 https://github.com/matshidisolp;}"
-sudo sed -i "/$search/$repl" /etc/nginx/sites-available/default
+# Upadating Packages before Installations
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Creating an index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Performing a 301 Redirection
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/matshidisolp permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Restarting Nginx service
 sudo service nginx restart
