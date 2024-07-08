@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Web-01 http response header configurations
+
+# Update and install packages
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Customizing web-02 to match web-01
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Implement the redirection to match web-01
+new_string="server_name_;\n\trewrite ^\/redirect_me https:\/\/github.com\/matshidisolp permanent;"
+
+sudo sed -i "s/server_name _;/$new_string" /etc/nginx/sites-enable/default
+
+# Creating custom error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# Custom HTTP response header
+sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+# Test for syntax error
+sudo nginx -t
+
+# Restart nginx service
+sudo service nginx restart
