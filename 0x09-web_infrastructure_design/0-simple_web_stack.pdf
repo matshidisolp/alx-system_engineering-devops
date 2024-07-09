@@ -1,0 +1,23 @@
+0x09-web_infrastructure_design
+
+Task 0: Explaining the specifics about the infrastructure
+What is a server: A server is a virtual device or computer program that provides functionality for other programs or devices, sometimes known as clients.
+
+What is the role of the domain name:  A domain name helps to identify and access a website on the internet.
+
+What type of DNS record www is in www.foobar.com: It is a ‘cname”  and uses an A record. This can be checked by running dig www.foobar.com .
+
+What is the role of the web server: A web server's primary function is to display website content by processing, storing, and sending webpages to users. In addition to HTTP, web servers may handle email, file transfers, and storage via SMTP (Simple Mail Transfer Protocol) and FTP (File Transfer Protocol). 
+
+What is the role of the application server: Application servers provide excellent performance, security, and dependability while enabling the development, management, and operation of web-based applications.
+
+What is the role of the database: A database is an organized collection of data so that it can be easily accessed. The data can be stored and manipulated as needed (add, remove, replace, etc.).
+
+What is the server using to communicate with the computer of the user requesting the website: The server communicates through the HTTP protocol. This is a HyperText Transfer Protocol used for fetching resources such as HTML documents. 
+Issues with the infrastructure:
+SPOF: Single Point Of Failure: Having a single server with a single web server, application server, and database is the first of many single points of failure. A component of a system that, if it malfunctions, will render the entire system inoperable is known as a single point of failure. 
+
+Downtime when maintenance needed (like deploying new code web server needs to be restarted): The downtime period might be longer than expected because the server is dependent on one code base, and in addition this code is unavailable. Users will therefore not be able to access the website and its contents, and this would result in a bas user experience which can lead to loss of traffic.
+
+Cannot scale if too much incoming traffic: Because the domain name points directly to the server, it lacks a load balancer, which would make handling larger loads much simpler. This might result in a bad user experience and problems with the volume of users attempting to access the websites' content. It may also have an impact on how many users the website can support at once. Both the user and the client find that to be restrictive. 
+
