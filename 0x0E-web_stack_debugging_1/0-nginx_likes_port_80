@@ -4,4 +4,4 @@
 apt-get update -y
 apt-get install -y nginx
 systemctl enable nginx
-sudo service nginx start
+systemctl start nginx
