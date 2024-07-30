@@ -3,9 +3,9 @@
 TODO list progress for a given employee ID.
 """
 
+import json
 import requests
 import sys
-import json
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -35,7 +35,6 @@ if __name__ == "__main__":
     for task in done_tasks:
         print(f"\t {task.get('title')}")
 
-    # Export to JSON
     tasks = [
         {
             "task": task.get("title"),
