@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-'''
+"""
 Queries the reddit api for number of subscribers
-'''
+"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    '''
+    """
     Get the number of subscribers from a subreddit
-    '''
+    """
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     header = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
